@@ -15,7 +15,7 @@ end
 
 -- 
 -- lspconfig.pyright.setup { blabla}
-require("lspconfig").clangd.setup {
+lspconfig.clangd.setup {
   on_attach = on_attach,
   capabilities = cmp_nvim_lsp.default_capabilities(),
   cmd = {
