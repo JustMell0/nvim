@@ -1,7 +1,30 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
+
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+
+      -- Only one of these is needed, not both.
+      "nvim-telescope/telescope.nvim", -- optional
+    },
+    config = true,
+    lazy = false,
+  },
+
+  {
+    "nvim-lua/plenary.nvim",
+    lazy = false,
+  },
+
+  {
+    "sindrets/diffview.nvim",
+    lazy = false,
+  },
 
   {
     "christoomey/vim-tmux-navigator",
@@ -15,10 +38,9 @@ local plugins = {
     },
     event = "BufRead",
     config = function()
-      require("custom.configs.telekasten")
+      require "custom.configs.telekasten"
     end,
   },
-
 
   {
 
@@ -54,7 +76,7 @@ local plugins = {
   {
     "mfussenegger/nvim-dap",
     config = function()
-      require "core.utils".load_mappings "dap"
+      require("core.utils").load_mappings "dap"
     end,
   },
 
@@ -79,7 +101,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
@@ -100,8 +122,6 @@ local plugins = {
       require("better_escape").setup()
     end,
   },
-
-
 
   --Install Copilot
   {
