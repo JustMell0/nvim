@@ -40,6 +40,7 @@ local plugins = {
     config = function()
       require "custom.configs.telekasten"
     end,
+    lazy = false,
   },
 
   {
